@@ -7,9 +7,6 @@ const Player = sequelize.define("Player", {
     allowNull: false,
     unique: true,
   },
-  characterName: {
-    type: DataTypes.STRING,
-  },
   level: {
     type: DataTypes.INTEGER,
     defaultValue: 1,

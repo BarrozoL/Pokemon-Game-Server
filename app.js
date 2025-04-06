@@ -3,7 +3,8 @@ const express = require("express");
 const cors = require("cors");
 const sequelize = require("./db/db"); // Our Sequelize instance
 
-const Player = require("./models/Player.Model"); // Import the Player model
+// routes
+const playerRoutes = require("./routes/Player.routes");
 
 const app = express();
 app.use(express.json());
@@ -13,6 +14,8 @@ app.use(cors({ origin: "http://localhost:3000" }));
 app.get("/api", (req, res, next) => {
   res.json({ message: "Server is running!" });
 });
+
+app.use("/", playerRoutes);
 
 // Sync database, then listen
 sequelize
